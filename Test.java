@@ -23,8 +23,6 @@ public class Test {
   // 'sift10M' input path
   private static String sift10M = "sift10M";
 
-  private CoresetBFL compilingBFL;
-
   // main function to run tests
   public static void main(String[] args) throws IOException, InterruptedException {
 
@@ -87,10 +85,10 @@ public class Test {
     runBatchTests(200, 100, 100, kValues_e, alphaValues_e, mValues_e, metric, "experiments (data)/", false);
 
     // justification_random
-    // runBatchTests(3000, 2000, 100, kValues_j, alphaValues_j, mValues_j, metric, "justification_random (data)/", true);
+    runBatchTests(3000, 2000, 100, kValues_j, alphaValues_j, mValues_j, metric, "justification_random (data)/", true);
 
     // experiments_random
-    // runBatchTests(10000, 2000, 100, kValues_e, alphaValues_e, mValues_e, metric, "experiments_random (data)/", true);
+    runBatchTests(10000, 2000, 100, kValues_e, alphaValues_e, mValues_e, metric, "experiments_random (data)/", true);
   }
 
   // run tests on many algorithmss
