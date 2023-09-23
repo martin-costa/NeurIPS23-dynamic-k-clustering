@@ -15,8 +15,8 @@ The input data should be stored in a file with the following format: The first l
 To run the algorithms, we have Java files `RunDynamicMP.java` and `RunHenzingerKale.java`, that can be used to run our dynamic algorithm and the dynamic algorithm of Henzinger and Kale respectively.
 
 Both of these have the following input parameters:
-* The number of centers in our solution, $k$
-* The name of the dataset, *dataset*  
+* The number of centers in the solution, $k$
+* The name of the dataset, *dataset*
 * The number of datapoints to be used in the update stream, $n$
 * The size of the sliding window, *windowLength*
 * The number of queries to be performed, *queryCount*
@@ -26,11 +26,11 @@ Additionally, `RunDynamicMP.java` takes as input the parameter $\phi$, which det
 In order to run these algorithms, ensure you have Java installed and run the following commands in the terminal:
 
 ```
-java RunDynamicMP k dataset n widownLength queryCount phi beta epsilon
+java RunDynamicMP k dataset n windowLength queryCount phi beta epsilon
 ```
 
 ```
-java RunHenzingerKale k dataset n widownLength queryCount psi
+java RunHenzingerKale k dataset n windowLength queryCount psi
 ```
 
 For example, executing the command
@@ -54,4 +54,4 @@ in the folder *test\_results*, where [dataset], [k], and [phi] respectively deno
 * [dataset]\_[k]\_[phi]\_BCLP\_querytime is the time taken to handle the $i^{th}$ query (in nano seconds)
 * [dataset]\_[k]\_[phi]\_BCLP\_cost is the cost of the solution produced by the $i^{th}$ query
 
-Running `RunHenzingerKale.java` will produce an analogous output, where the prefix of the files is [dataset]\_[k]\_[psi]\_KH20 instead.
+Running `RunHenzingerKale.java` will produce an analogous output, where the prefix of the files is [dataset]\_[k]\_[psi]\_HK20 instead.
