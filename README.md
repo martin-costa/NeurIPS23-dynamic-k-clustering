@@ -16,21 +16,21 @@ To run the algorithms, we have Java files `RunDynamicMP.java` and `RunHenzingerK
 
 Both of these have the following input parameters:
 * The number of centers in the solution, $k$
-* The name of the dataset, *dataset*
-* The number of datapoints to be used in the update stream, $n$
+* The name of the file containing the input data, *dataset*
+* The number of data points to be used in the update stream, $n$
 * The size of the sliding window, *windowLength*
 * The number of queries to be performed, *queryCount*
 
-Additionally, `RunDynamicMP.java` takes as input the parameter $\phi$, which determines how many points are sampled at each layer, and the (optional) parameters $\beta$ and $\epsilon$, which control the sizes of the layers and how often they are reconstructed respectively. If not specified, $\beta$ and $\epsilon$ are set to $0.5$ and $0.2$ respectively by default. `RunHenzingerKale.java` also takes as input the parameter $\psi$, which determines the sizes of the coresets constructed by the algorithm.
+Additionally, `RunDynamicMP.java` takes as input the parameter $\phi$, which determines how many points are sampled at each layer, and the (optional) parameters $\beta$ and $\epsilon$, which control the sizes of the layers and how often they are reconstructed respectively (see [our paper](https://drive.google.com/file/d/1CyV2aT0j3slsOQ4nBGYVl7R6T8QUuOL1/view "our paper") for more details). If not specified, $\beta$ and $\epsilon$ are set to $0.5$ and $0.2$ respectively by default. `RunHenzingerKale.java` also takes as input the parameter $\psi$, which determines the sizes of the coresets constructed by the algorithm.
 
 In order to run these algorithms, ensure you have Java installed and run the following commands in the terminal:
 
 ```
-java RunDynamicMP k dataset n windowLength queryCount phi beta epsilon
+java RunDynamicMP <k> <dataset> <n> <windowLength> <queryCount> <phi> <beta> <epsilon>
 ```
 
 ```
-java RunHenzingerKale k dataset n windowLength queryCount psi
+java RunHenzingerKale <k> <dataset> <n> <windowLength> <queryCount> <psi>
 ```
 
 For example, executing the command
@@ -48,7 +48,7 @@ Running `RunDynamicMP.java` will create 3 files:
 * [dataset]\_[k]\_[phi]\_BCLP\_querytime
 * [dataset]\_[k]\_[phi]\_BCLP\_cost
 
-in the folder *test\_results*, where [dataset], [k], and [phi] respectively denote the values of these parameters. For example, running the command above will produce files named 'song_10_40_updatetime', 'song_10_40_querytime', and 'song_10_40_cost'. Each file consists of a sequence of numbers, separated by the symbol '#'. The $i^{th}$ number in:
+in the folder *test\_results*, where [dataset], [k], and [phi] respectively denote the values of the corresponding variables. For example, running the command above will produce files named 'song_10_40_updatetime', 'song_10_40_querytime', and 'song_10_40_cost'. Each file consists of a sequence of numbers, separated by the symbol '#'. The $i^{th}$ number in:
 
 * [dataset]\_[k]\_[phi]\_BCLP\_updatetime is the time taken to handle the $i^{th}$ update (in nano seconds)
 * [dataset]\_[k]\_[phi]\_BCLP\_querytime is the time taken to handle the $i^{th}$ query (in nano seconds)
